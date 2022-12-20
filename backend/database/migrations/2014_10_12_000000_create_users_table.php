@@ -16,13 +16,14 @@ return new class extends Migration
         Schema::create('users', function (Blueprint $table) {
             $table->id();
             $table->uuid();
-            $table->foreignId('created_by')->references('id')->on('users');
+            $table->foreignId('created_by')->nullable()->references('id')->on('users');
             $table->string('name');
             $table->string('email')->unique();
             $table->string('password');
             $table->integer('type');
             $table->rememberToken();
             $table->timestamp('email_verified_at')->nullable();
+            $table->timestamp('inactivated_at')->nullable();
             $table->timestamps();
             $table->softDeletes();
         });

@@ -18,7 +18,7 @@ return new class extends Migration
             $table->uuid();
             $table->foreignId('task_id')->constrained();
             $table->timestamp('created_at');
-            $table->timestamp('terminated_at');
+            $table->timestamp('terminated_at')->nullable();
             $table->softDeletes();
         });
     }

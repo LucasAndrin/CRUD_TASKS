@@ -2,11 +2,9 @@
 
 namespace App\Enums;
 
-// use function PHPUnit\Framework\matches;
-
 enum UserType: int
 {
-    case Admin = 1;
-    case Coordinator = 2;
-    case Responsible = 3;
+    case ADMIN = 1;
+    case COORDINATOR = 2;
+    case RESPONSIBLE = 3;
 }
