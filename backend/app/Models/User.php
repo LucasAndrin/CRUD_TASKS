@@ -2,16 +2,18 @@
 
 namespace App\Models;
 
+use App\Enums\UserType;
 use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Foundation\Auth\User as Authenticatable;
 use Illuminate\Notifications\Notifiable;
 use YourAppRocks\EloquentUuid\Traits\HasUuid;
 use Laravel\Sanctum\HasApiTokens;
 use EloquentFilter\Filterable;
+use Illuminate\Database\Eloquent\SoftDeletes;
 
 class User extends Authenticatable
 {
-    use HasApiTokens, HasFactory, HasUuid, Notifiable, Filterable;
+    use HasApiTokens, HasFactory, HasUuid, Notifiable, Filterable, SoftDeletes;
 
     /**
      * The attributes that are mass assignable.
@@ -30,6 +32,7 @@ class User extends Authenticatable
      * @var array<int, string>
      */
     protected $hidden = [
+        'id',
         'password',
         'remember_token',
     ];
@@ -41,5 +44,6 @@ class User extends Authenticatable
      */
     protected $casts = [
         'email_verified_at' => 'datetime',
+        'type' => UserType::class
     ];
 }
