@@ -9,7 +9,11 @@
         "guzzlehttp/guzzle": "^7.2",
         "laravel/framework": "^9.19",
         "laravel/sanctum": "^3.0",
-        "laravel/tinker": "^2.7"
+        "laravel/tinker": "^2.7",
+        "timwassenburg/laravel-repository-generator": "^1.0",
+        "timwassenburg/laravel-service-generator": "^1.0",
+        "tucker-eric/eloquentfilter": "^3.1",
+        "your-app-rocks/eloquent-uuid": "^2.5"
     },
     "require-dev": {
         "fakerphp/faker": "^1.9.1",
@@ -21,6 +25,9 @@
         "spatie/laravel-ignition": "^1.0"
     },
     "autoload": {
+        "files": [
+            "app/Helpers/helper.php"
+        ],
         "psr-4": {
             "App\\": "app/",
             "Database\\Factories\\": "database/factories/",
