@@ -29,7 +29,7 @@ class UserResponsibleController extends Controller
         return response()->json($data, 200);
     }
 
-    public function markAsStoped(Request $request): JsonResponse
+    public function markAsStopped(Request $request): JsonResponse
     {
         $data = $this->userResponsibleService->markAsStopped($request->uuid);
 
@@ -38,7 +38,7 @@ class UserResponsibleController extends Controller
 
     public function markAsCompleted(Request $request): JsonResponse
     {
-        $data = $this->userResponsibleService->markTaskAsProgress($request->uuid);
+        $data = $this->userResponsibleService->markTaskAsCompleted($request->uuid);
 
         return response()->json($data, 200);
     }

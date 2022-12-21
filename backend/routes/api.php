@@ -53,7 +53,7 @@ Route::middleware('auth:sanctum')->group(function () {
             Route::get('', 'index');
             Route::prefix('mark-as')->group(function () {
                 Route::patch('progress', 'markAsProgress');
-                Route::patch('stopped', 'markAsStoped');
+                Route::patch('stopped', 'markAsStopped');
                 Route::patch('completed', 'markAsCompleted');
             });
         });

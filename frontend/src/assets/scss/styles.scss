@@ -1,3 +1,8 @@
+/* Background color */
+.bg-blue-100 {
+    background-color: $blue-100;
+}
+
 /* Text colors */
 .text-indigo {
     color: $indigo !important;
@@ -110,25 +115,4 @@
 .loading-skeleton {
     pointer-events: none;
     animation: loading-skeleton 1s infinite alternate;
-}
-
-/* Background colors */
-.frame-bg-indigo-100 {
-    background-color: $indigo-300;
-    appearance: none;
-    -webkit-appearance: none;
-}
-
-.frame-bg-indigo-100 {
-    animation: loading-skeleton 1s infinite alternate;
-}
-
-@keyframes frame-bg-indigo-100 {
-    from {
-        opacity: 0.2;
-    }
-
-    to {
-        opacity: 1;
-    }
 }

@@ -13,6 +13,6 @@ class UserCoordinator extends User
 
     public function tasks()
     {
-        return $this->hasMany(Task::class, 'created_by', 'id');
+        return $this->hasMany(Task::class, 'created_by', 'id')->latest();
     }
 }

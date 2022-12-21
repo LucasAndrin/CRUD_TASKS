@@ -54,7 +54,8 @@ export default {
                     title: 'Task in progress!',
                     showConfirmButton: false,
                 });
-                this.tasks[index].status = 2;
+                this.getTasks();
+                // this.tasks[index].status = 2;
             });
         },
 
@@ -79,7 +80,8 @@ export default {
                     title: 'Task stopped!',
                     showConfirmButton: false,
                 });
-                this.tasks[index].status = 3;
+                this.getTasks();
+                // this.tasks[index].status = 3;
             });
         },
 
@@ -104,7 +106,8 @@ export default {
                     title: 'Task completed!',
                     showConfirmButton: false,
                 });
-                this.tasks[index].status = 4;
+                this.getTasks();
+                // this.tasks[index].status = 4;
             });
         },
 
@@ -162,7 +165,7 @@ export default {
                             />
                         </td>
                     </tr>
-                    <tr v-for="(task, index) in this.tasks" :key="index" v-else-if="this.tasks.length" :class="{'frame-bg-indigo-100': taskStatus(task.status) == 'Progress'}">
+                    <tr v-for="(task, index) in this.tasks" :key="index" v-else-if="this.tasks.length" :class="{'bg-blue-100': taskStatus(task.status) == 'Progress'}">
                         <td class="align-middle px-3">{{ task.description }}</td>
                         <td class="align-middle px-3 d-none d-md-table-cell">{{ task.creator.name }}</td>
                         <td class="align-middle px-3 d-none d-lg-table-cell">{{ taskStatus(task.status) }}</td>
