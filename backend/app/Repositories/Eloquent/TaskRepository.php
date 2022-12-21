@@ -27,8 +27,13 @@ class TaskRepository extends BaseRepository implements TaskRepositoryInterface
         return $this->model->latest()->with($with)->filter($filter)->get($get);
     }
 
-    public function createTask($data): Task
+    public function createTask(array $data): Task
     {
         return $this->model->create($data);
+    }
+
+    public function updateTaskByUuid(string $uuid, array $data): int
+    {
+        return $this->model->where('uuid', $uuid)->update($data);
     }
 }

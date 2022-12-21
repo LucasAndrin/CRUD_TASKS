@@ -89,6 +89,7 @@ export default {
 
         updateTask() {
             this.axios.put('/api/coordinator/tasks/update', {
+                'uuid': this.selectedTask.uuid,
                 'description': this.selectedTask.description.value
             }).then(response => {
                 this.$swal.fire({
@@ -97,13 +98,13 @@ export default {
                     timer: 5000,
                     timerProgressBar: true,
                     icon: 'success',
-                    title: 'Task created with success!',
+                    title: 'Task updated with success!',
                     showConfirmButton: false,
                 });
                 this.resetSelectedTask();
-                this.getUsers();
+                this.getTasks();
             }).catch(error => {
-                this.selectedTask.description.validation = error.response.data.message;
+                console.log(error.response.data.message);
             });
         },
 
@@ -129,7 +130,7 @@ export default {
                     validation: null
                 },
                 responsible_uuid: {
-                    value: this.tasks[index].responsbile.uuid,
+                    value: this.tasks[index].responsible.uuid,
                     validation: null
                 }
             };

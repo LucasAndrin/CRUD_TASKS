@@ -43,4 +43,11 @@ class UserCoordinatorService
             'responsible_id' => $responsible->id
         ]);
     }
+
+    public function updateTask(string $uuid, string $description): int
+    {
+        return $this->taskRepository->updateTaskByUuid($uuid, [
+            'description' => $description
+        ]);
+    }
 }

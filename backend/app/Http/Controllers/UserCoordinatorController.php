@@ -58,9 +58,11 @@ class UserCoordinatorController extends Controller
      * @param  int  $id
      * @return \Illuminate\Http\Response
      */
-    public function update(Request $request, $id)
+    public function update(Request $request)
     {
-        //
+        $data = $this->userCoordinatorService->updateTask($request->uuid, $request->description);
+
+        return response()->json($data, 200);
     }
 
     /**
