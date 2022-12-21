@@ -83,6 +83,36 @@ export default {
                 this.selectedUser.email.validation = null;
                 this.selectedUser.password.validation = null;
                 this.selectedUser.password_confirmation.validation = null;
+                this.selectedUser.type.validation = null;
+                Object.keys(error.response.data.errors).forEach((key) => {
+                    this.selectedUser[key].validation = error.response.data.errors[key][0];
+                });
+            })
+        },
+
+        updateUser() {
+            console.log(this.selectedUser.uuid);
+            this.axios.put('/api/admin/users/update', {
+                'uuid': this.selectedUser.uuid,
+                'name': this.selectedUser.name.value,
+                'email': this.selectedUser.email.value,
+                'type': this.selectedUser.type.value
+            }).then(response => {
+                this.$swal.fire({
+                    toast: true,
+                    position: 'top-end',
+                    timer: 5000,
+                    timerProgressBar: true,
+                    icon: 'success',
+                    title: 'User updated with success!',
+                    showConfirmButton: false,
+                });
+                this.resetSelectedUser();
+                this.getUsers();
+            }).catch(error => {
+                this.selectedUser.name.validation = null;
+                this.selectedUser.email.validation = null;
+                this.selectedUser.type.validation = null;
                 Object.keys(error.response.data.errors).forEach((key) => {
                     this.selectedUser[key].validation = error.response.data.errors[key][0];
                 });
@@ -154,6 +184,32 @@ export default {
                     validation: null
                 }
             };
+        },
+
+        setSelectedUser(index) {
+            this.selectedUser = {
+                uuid: this.users[index].uuid,
+                name: {
+                    value: this.users[index].name,
+                    validation: null
+                },
+                email: {
+                    value: this.users[index].email,
+                    validation: null
+                },
+                password: {
+                    value: null,
+                    validation: null
+                },
+                password_confirmation: {
+                    value: null,
+                    validation: null
+                },
+                type: {
+                    value: this.users[index].type,
+                    validation: null
+                }
+            };
         }
     },
 
@@ -212,7 +268,9 @@ export default {
                         <td class="align-center p-3">
                             <div class="d-flex justify-content-center gap-3">
                                 <svg @click="deleteUser(index)" class="cursor-pointer" height="20px" xmlns="http://www.w3.org/2000/svg" preserveAspectRatio="xMidYMid meet" viewBox="0 0 24 24"><path fill="none" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M3 6h18m-2 0v14c0 1-1 2-2 2H7c-1 0-2-1-2-2V6m3 0V4c0-1 1-2 2-2h4c1 0 2 1 2 2v2m-6 5v6m4-6v6"/></svg>
-                                <svg height="20px" xmlns="http://www.w3.org/2000/svg" preserveAspectRatio="xMidYMid meet" viewBox="0 0 24 24"><path fill="none" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M17 3a2.828 2.828 0 1 1 4 4L7.5 20.5L2 22l1.5-5.5L17 3z"/></svg>
+                                <a href="#" class="text-dark" data-bs-toggle="modal" data-bs-target="#updateUser" @click="setSelectedUser(index)">
+                                    <svg height="20px" xmlns="http://www.w3.org/2000/svg" preserveAspectRatio="xMidYMid meet" viewBox="0 0 24 24"><path fill="none" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M17 3a2.828 2.828 0 1 1 4 4L7.5 20.5L2 22l1.5-5.5L17 3z"/></svg>
+                                </a>
                             </div>
                         </td>
                     </tr>
@@ -281,6 +339,55 @@ export default {
                             <div class="d-flex gap-1">
                                 <svg height="20px" xmlns="http://www.w3.org/2000/svg" preserveAspectRatio="xMidYMid meet" viewBox="0 0 256 256"><path fill="currentColor" d="M224 128a8 8 0 0 1-8 8h-80v80a8 8 0 0 1-16 0v-80H40a8 8 0 0 1 0-16h80V40a8 8 0 0 1 16 0v80h80a8 8 0 0 1 8 8Z"/></svg>
                                 <div class="d-none d-md-inline-block">Add User</div>
+                            </div>
+                        </button>
+                    </div>
+                </div>
+            </div>
+        </form>
+
+        <form class="modal fade" id="updateUser" tabindex="-1" aria-labelledby="updateUserLabel" aria-hidden="true" @submit.prevent="updateUser()">
+            <div class="modal-dialog">
+                <div class="modal-content">
+                    <div class="modal-header">
+                        <h1 class="modal-title fs-5" id="updateUserLabel">Update User</h1>
+                        <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                    </div>
+                    <div class="modal-body">
+                        <div class="row mb-3">
+                            <div class="col">
+                                <input v-model="this.selectedUser.name.value" type="text" class="form-control" :class="{'is-invalid': this.selectedUser.name.validation}" placeholder="Name">
+                                <div class="invalid-feedback">
+                                    {{ this.selectedUser.name.validation }}
+                                </div>
+                            </div>
+                        </div>
+                        <div class="row mb-3">
+                            <div class="col">
+                                <input v-model="this.selectedUser.email.value" type="text" class="form-control" :class="{'is-invalid': this.selectedUser.email.validation}" placeholder="E-mail">
+                                <div class="invalid-feedback">
+                                    {{ this.selectedUser.email.validation }}
+                                </div>
+                            </div>
+                        </div>
+                        <div class="row mb-3">
+                            <div class="col">
+                                <select v-model="this.selectedUser.type.value" class="form-control" :class="{'is-invalid': this.selectedUser.type.validation}">
+                                    <option value="1" selected="selected">Admin</option>
+                                    <option value="2">Coordinator</option>
+                                    <option value="3">Responsible</option>
+                                </select>
+                                <div class="invalid-feedback">
+                                    {{ this.selectedUser.type.validation }}
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="modal-footer">
+                        <button class="btn btn-indigo rounded-3 text-decoration-none" @click.prevent="updateUser()">
+                            <div class="d-flex gap-1">
+                                <svg height="20px" xmlns="http://www.w3.org/2000/svg" preserveAspectRatio="xMidYMid meet" viewBox="0 0 256 256"><path fill="currentColor" d="M224 128a8 8 0 0 1-8 8h-80v80a8 8 0 0 1-16 0v-80H40a8 8 0 0 1 0-16h80V40a8 8 0 0 1 16 0v80h80a8 8 0 0 1 8 8Z"/></svg>
+                                <div class="d-none d-md-inline-block">Update User</div>
                             </div>
                         </button>
                     </div>
