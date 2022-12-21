@@ -37,7 +37,7 @@ class UserAdminController extends Controller
      */
     public function store(CreateUserRequest $request)
     {
-        $data = $this->userAdminService->createUser($request->user()->uuid, $request->all());
+        $data = $this->userAdminService->createUser($request->user()->id, $request->all());
 
         return response()->json($data, 200);
     }

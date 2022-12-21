@@ -59,6 +59,6 @@ export default {
 
         <RouterView v-else-if="!this.loading && !this.authenticated" @authenticated="checkLogin()"/>
 
-        <Layout :user="this.user" v-else/>
+        <Layout :user="this.user" @logout="logout()" v-else/>
     </div>
 </template>

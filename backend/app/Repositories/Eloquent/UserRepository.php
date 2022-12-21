@@ -42,7 +42,7 @@ class UserRepository extends BaseRepository implements UserRepositoryInterface
 
     public function findUserByEmail(string $email): User | null
     {
-        return $this->model->where('email', $email)->first();
+        return $this->model->where('email', $email)->whereNull('inactivated_at')->first();
     }
 
     public function getUsers(array|null $filter): Collection

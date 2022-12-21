@@ -6,7 +6,13 @@ export default {
             type: Object,
             required: true
         }
-    }
+    },
+
+    methods: {
+        logout() {
+            this.$emit('logout');
+        }
+    },
     
 }
 </script>
@@ -31,11 +37,6 @@ export default {
                         <svg height="20px" xmlns="http://www.w3.org/2000/svg" preserveAspectRatio="xMidYMid meet" viewBox="0 0 256 256"><path fill="currentColor" d="M208 224h-48a16 16 0 0 1-16-16v-48h-32v48a16 16 0 0 1-16 16H48a16 16 0 0 1-16-16v-92.5a16 16 0 0 1 5.2-11.8l80-72.7a16 16 0 0 1 21.6 0l80 72.7a16 16 0 0 1 5.2 11.8V208a16 16 0 0 1-16 16Zm-96-80h32a16 16 0 0 1 16 16v48h48v-92.5l-80-72.7l-80 72.7V208h48v-48a16 16 0 0 1 16-16Z"/></svg>
                         <span class="nav_name">Home</span>
                     </RouterLink>
-            
-                    <!-- <RouterLink to="/" class="d-flex align-items-center gap-3 nav-link text-indigo text-decoration-none mb-2 ps-4 pt-2 pl-2">
-                        <svg height="20px" xmlns="http://www.w3.org/2000/svg" preserveAspectRatio="xMidYMid meet" viewBox="0 0 256 256"><path fill="currentColor" d="M240 208h-8V104a16 16 0 0 0-16-16h-64V40a16 16 0 0 0-16-16H40a16 16 0 0 0-16 16v168h-8a8 8 0 0 0 0 16h224a8 8 0 0 0 0-16Zm-24-104v104h-64V104ZM40 40h96v168H40Zm16 32a8 8 0 0 1 8-8h32a8 8 0 0 1 0 16H64a8 8 0 0 1-8-8Zm64 64a8 8 0 0 1-8 8H80a8 8 0 0 1 0-16h32a8 8 0 0 1 8 8Zm-16 40a8 8 0 0 1-8 8H64a8 8 0 0 1 0-16h32a8 8 0 0 1 8 8Zm96 0a8 8 0 0 1-8 8h-16a8 8 0 0 1 0-16h16a8 8 0 0 1 8 8Zm-32-40a8 8 0 0 1 8-8h16a8 8 0 0 1 0 16h-16a8 8 0 0 1-8-8Z"/></svg>
-                        <span class="nav_name">Cities</span>
-                    </RouterLink> -->
         
                 </div>
                 
