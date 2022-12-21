@@ -54,8 +54,7 @@ export default {
                     title: 'Task in progress!',
                     showConfirmButton: false,
                 });
-                this.getTasks();
-                // this.tasks[index].status = 2;
+                this.tasks[index].status = 2;
             });
         },
 
@@ -80,8 +79,7 @@ export default {
                     title: 'Task stopped!',
                     showConfirmButton: false,
                 });
-                this.getTasks();
-                // this.tasks[index].status = 3;
+                this.tasks[index].status = 3;
             });
         },
 
@@ -106,8 +104,7 @@ export default {
                     title: 'Task completed!',
                     showConfirmButton: false,
                 });
-                this.getTasks();
-                // this.tasks[index].status = 4;
+                this.tasks[index].status = 4;
             });
         },
 
