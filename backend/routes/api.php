@@ -2,6 +2,7 @@
 
 use App\Http\Controllers\AuthController;
 use App\Http\Controllers\UserAdminController;
+use App\Http\Controllers\UserCoordinatorController;
 use Illuminate\Support\Facades\Route;
 
 /*
@@ -33,6 +34,16 @@ Route::middleware('auth:sanctum')->group(function () {
             Route::put('update', 'update');
             Route::get('show', 'show');
             Route::delete('destroy', 'destroy');
+        });
+    });
+
+    Route::controller(UserCoordinatorController::class)->prefix('coordinator')->group(function () {
+        Route::get('responsibles', 'responsibles');
+        Route::prefix('tasks')->group(function () {
+            Route::get('', 'index');
+            Route::post('store', 'store');
+            Route::put('update', 'update');
+            Route::get('show', 'show');
         });
     });
 });

@@ -2,6 +2,7 @@
 
 namespace App\Repositories\Eloquent;
 
+use App\Filters\UserFilter;
 use App\Models\User;
 use App\Repositories\UserRepositoryInterface;
 use Illuminate\Database\Eloquent\Collection;
@@ -45,9 +46,9 @@ class UserRepository extends BaseRepository implements UserRepositoryInterface
         return $this->model->where('email', $email)->whereNull('inactivated_at')->first();
     }
 
-    public function getUsers(array|null $filter): Collection
+    public function getUsers(array $filter = []): Collection
     {
-        return $this->model->latest()->filter($filter)->get();
+        return $this->model->latest()->filter($filter, UserFilter::class)->get();
     }
 
     public function inactivateUser(string $uuid): int

@@ -32,11 +32,11 @@ class Task extends Model
 
     public function responsible()
     {
-        return $this->hasOne(UserResponsible::class, 'responsible_id', 'id');
+        return $this->belongsTo(UserResponsible::class, 'responsible_id', 'id');
     }
 
     public function creator()
     {
-        return $this->hasOne(UserAdmin::class, 'created_by', 'id');
+        return $this->belongsTo(UserCoordinator::class, 'created_by', 'id');
     }
 }

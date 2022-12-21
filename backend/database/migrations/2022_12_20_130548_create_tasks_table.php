@@ -19,7 +19,7 @@ return new class extends Migration
             $table->foreignId('responsible_id')->references('id')->on('users');
             $table->foreignId('created_by')->references('id')->on('users');
             $table->string('description');
-            $table->integer('status');
+            $table->integer('status')->default(1);
             $table->timestamps();
             $table->softDeletes();
         });

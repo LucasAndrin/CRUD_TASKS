@@ -15,7 +15,6 @@ export default {
     data() {
         return {
             users: [],
-            selectedUuid: null,
             search: null,
             loading: false,
 
@@ -116,7 +115,7 @@ export default {
                 Object.keys(error.response.data.errors).forEach((key) => {
                     this.selectedUser[key].validation = error.response.data.errors[key][0];
                 });
-            })
+            });
         },
 
         deleteUser(index) {
@@ -145,7 +144,7 @@ export default {
                     title: error.data.message,
                     showConfirmButton: false,
                 });
-            })
+            });
         },
 
         userType(type) {
