@@ -162,9 +162,9 @@ export default {
                             />
                         </td>
                     </tr>
-                    <tr v-for="(task, index) in this.tasks" :key="index" v-else-if="this.tasks.length">
+                    <tr v-for="(task, index) in this.tasks" :key="index" v-else-if="this.tasks.length" :class="{'frame-bg-indigo-100': taskStatus(task.status) == 'Progress'}">
                         <td class="align-middle px-3">{{ task.description }}</td>
-                        <td class="align-middle px-3 d-none d-md-table-cell">{{ task.creator.name ? 'Inactive' : 'Active' }}</td>
+                        <td class="align-middle px-3 d-none d-md-table-cell">{{ task.creator.name }}</td>
                         <td class="align-middle px-3 d-none d-lg-table-cell">{{ taskStatus(task.status) }}</td>
 
                         <td class="align-center p-3">

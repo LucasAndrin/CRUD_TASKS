@@ -77,7 +77,7 @@ export default {
                     showConfirmButton: false,
                 });
                 this.resetSelectedTask();
-                this.getUsers();
+                this.getTasks();
             }).catch(error => {
                 this.selectedTask.description.validation = null;
                 this.selectedTask.responsible_uuid.validation = null;
@@ -200,7 +200,7 @@ export default {
                     <tr v-for="(task, index) in this.tasks" :key="index" v-else-if="this.tasks.length">
                         <td class="align-middle px-3">{{ task.description }}</td>
                         <td class="align-middle px-3 d-none d-sm-table-cell">{{ task.responsible.name}}</td>
-                        <td class="align-middle px-3 d-none d-md-table-cell">{{ task.creator.name ? 'Inactive' : 'Active' }}</td>
+                        <td class="align-middle px-3 d-none d-md-table-cell">{{ task.creator.name }}</td>
                         <td class="align-middle px-3 d-none d-lg-table-cell">{{ taskStatus(task.status) }}</td>
 
                         <td class="align-center p-3">
