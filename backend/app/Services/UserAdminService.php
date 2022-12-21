@@ -24,13 +24,14 @@ class UserAdminService
         ]);
     }
 
-    public function createUser(array $data): User
+    public function createUser(string $uuid, array $data): User
     {
         return $this->userRepository->createUser([
             'name' => $data['name'],
             'email' => $data['email'],
             'password' => Hash::make($data['password']),
-            'type' => $data['type']
+            'type' => $data['type'],
+            'created_by' => $uuid
         ]);
     }
 
