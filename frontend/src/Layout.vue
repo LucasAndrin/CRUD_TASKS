@@ -23,19 +23,19 @@ export default {
         <div class="sidebar pt-md-2 pt-1 pe-md-1 pe-2 pb-2 h-100 bg-white border-end sidebar-show" id="sidebar">
             <nav class="nav d-flex flex-column justify-content-between h-100 overflow-hidden">
                 <div>
-                <a href="#" class="d-flex justify-content-md-center nav-link text-indigo px-md-3 ps-0">
-                    <svg class="w-50" xmlns="http://www.w3.org/2000/svg" preserveAspectRatio="xMidYMid meet" viewBox="0 0 24 24" fill="currentColor"><g stroke="currentColor" stroke-linecap="round" stroke-linejoin="round"><path fill="none" stroke-dasharray="66" stroke-dashoffset="66" stroke-width="2" d="M3 14V5H21V19H3V14"><animate fill="freeze" attributeName="stroke-dashoffset" dur="0.6s" values="66;0"/></path><path fill="currentColor" fill-opacity="0" stroke-dasharray="52" stroke-dashoffset="52" d="M3 16L7 13L10 15L16 10L21 14V19H3Z"><animate fill="freeze" attributeName="stroke-dashoffset" begin="0.6s" dur="0.8s" values="52;0"/><animate fill="freeze" attributeName="fill-opacity" begin="1s" dur="0.15s" values="0;0.3"/></path></g><circle cx="7.5" cy="9.5" r="1.5" fill="currentColor" fill-opacity="0"><animate fill="freeze" attributeName="fill-opacity" begin="1s" dur="0.4s" values="0;1"/></circle></svg>
-                </a>
-        
-                <RouterLink to="/" class="d-flex align-items-center gap-3 nav-link text-indigo text-decoration-none mb-2 ps-4 pt-2 pl-2">
-                    <svg height="20px" xmlns="http://www.w3.org/2000/svg" preserveAspectRatio="xMidYMid meet" viewBox="0 0 256 256"><path fill="currentColor" d="M121.2 157.9a60 60 0 1 0-66.4 0a95.5 95.5 0 0 0-45.3 34.9a8 8 0 1 0 13 9.2a80.1 80.1 0 0 1 131 0a8 8 0 1 0 13-9.2a95.5 95.5 0 0 0-45.3-34.9ZM44 108a44 44 0 1 1 44 44a44 44 0 0 1-44-44Zm202.1 95.9A7.9 7.9 0 0 1 235 202a80.2 80.2 0 0 0-65.5-34a8 8 0 0 1 0-16a44 44 0 0 0 0-88a47.4 47.4 0 0 0-11.9 1.6a8 8 0 0 1-9.9-5.5a8.1 8.1 0 0 1 5.5-9.9a64 64 0 0 1 16.3-2.2a59.9 59.9 0 0 1 33.2 109.9a96.3 96.3 0 0 1 45.4 34.9a8 8 0 0 1-2 11.1Z"/></svg>
-                    <span class="nav_name">Contacts</span>
-                </RouterLink>
-        
-                <RouterLink to="/" class="d-flex align-items-center gap-3 nav-link text-indigo text-decoration-none mb-2 ps-4 pt-2 pl-2">
-                    <svg height="20px" xmlns="http://www.w3.org/2000/svg" preserveAspectRatio="xMidYMid meet" viewBox="0 0 256 256"><path fill="currentColor" d="M240 208h-8V104a16 16 0 0 0-16-16h-64V40a16 16 0 0 0-16-16H40a16 16 0 0 0-16 16v168h-8a8 8 0 0 0 0 16h224a8 8 0 0 0 0-16Zm-24-104v104h-64V104ZM40 40h96v168H40Zm16 32a8 8 0 0 1 8-8h32a8 8 0 0 1 0 16H64a8 8 0 0 1-8-8Zm64 64a8 8 0 0 1-8 8H80a8 8 0 0 1 0-16h32a8 8 0 0 1 8 8Zm-16 40a8 8 0 0 1-8 8H64a8 8 0 0 1 0-16h32a8 8 0 0 1 8 8Zm96 0a8 8 0 0 1-8 8h-16a8 8 0 0 1 0-16h16a8 8 0 0 1 8 8Zm-32-40a8 8 0 0 1 8-8h16a8 8 0 0 1 0 16h-16a8 8 0 0 1-8-8Z"/></svg>
-                    <span class="nav_name">Cities</span>
-                </RouterLink>
+                    <a href="#" class="d-flex justify-content-md-center nav-link text-indigo px-md-3 ps-0">
+                        <svg class="w-50" xmlns="http://www.w3.org/2000/svg" preserveAspectRatio="xMidYMid meet" viewBox="0 0 24 24" fill="currentColor"><g stroke="currentColor" stroke-linecap="round" stroke-linejoin="round"><path fill="none" stroke-dasharray="66" stroke-dashoffset="66" stroke-width="2" d="M3 14V5H21V19H3V14"><animate fill="freeze" attributeName="stroke-dashoffset" dur="0.6s" values="66;0"/></path><path fill="currentColor" fill-opacity="0" stroke-dasharray="52" stroke-dashoffset="52" d="M3 16L7 13L10 15L16 10L21 14V19H3Z"><animate fill="freeze" attributeName="stroke-dashoffset" begin="0.6s" dur="0.8s" values="52;0"/><animate fill="freeze" attributeName="fill-opacity" begin="1s" dur="0.15s" values="0;0.3"/></path></g><circle cx="7.5" cy="9.5" r="1.5" fill="currentColor" fill-opacity="0"><animate fill="freeze" attributeName="fill-opacity" begin="1s" dur="0.4s" values="0;1"/></circle></svg>
+                    </a>
+
+                    <RouterLink to="/" class="d-flex align-items-center gap-3 nav-link text-indigo text-decoration-none mb-2 ps-4 pt-2 pl-2">
+                        <svg height="20px" xmlns="http://www.w3.org/2000/svg" preserveAspectRatio="xMidYMid meet" viewBox="0 0 256 256"><path fill="currentColor" d="M208 224h-48a16 16 0 0 1-16-16v-48h-32v48a16 16 0 0 1-16 16H48a16 16 0 0 1-16-16v-92.5a16 16 0 0 1 5.2-11.8l80-72.7a16 16 0 0 1 21.6 0l80 72.7a16 16 0 0 1 5.2 11.8V208a16 16 0 0 1-16 16Zm-96-80h32a16 16 0 0 1 16 16v48h48v-92.5l-80-72.7l-80 72.7V208h48v-48a16 16 0 0 1 16-16Z"/></svg>
+                        <span class="nav_name">Home</span>
+                    </RouterLink>
+            
+                    <!-- <RouterLink to="/" class="d-flex align-items-center gap-3 nav-link text-indigo text-decoration-none mb-2 ps-4 pt-2 pl-2">
+                        <svg height="20px" xmlns="http://www.w3.org/2000/svg" preserveAspectRatio="xMidYMid meet" viewBox="0 0 256 256"><path fill="currentColor" d="M240 208h-8V104a16 16 0 0 0-16-16h-64V40a16 16 0 0 0-16-16H40a16 16 0 0 0-16 16v168h-8a8 8 0 0 0 0 16h224a8 8 0 0 0 0-16Zm-24-104v104h-64V104ZM40 40h96v168H40Zm16 32a8 8 0 0 1 8-8h32a8 8 0 0 1 0 16H64a8 8 0 0 1-8-8Zm64 64a8 8 0 0 1-8 8H80a8 8 0 0 1 0-16h32a8 8 0 0 1 8 8Zm-16 40a8 8 0 0 1-8 8H64a8 8 0 0 1 0-16h32a8 8 0 0 1 8 8Zm96 0a8 8 0 0 1-8 8h-16a8 8 0 0 1 0-16h16a8 8 0 0 1 8 8Zm-32-40a8 8 0 0 1 8-8h16a8 8 0 0 1 0 16h-16a8 8 0 0 1-8-8Z"/></svg>
+                        <span class="nav_name">Cities</span>
+                    </RouterLink> -->
         
                 </div>
                 
@@ -46,6 +46,6 @@ export default {
             </nav>
         </div>
         
-        <RouterView class="container-fluid pt-3"/>
+        <RouterView class="container-fluid pt-3" :user="this.user"/>
     </main>
 </template>
