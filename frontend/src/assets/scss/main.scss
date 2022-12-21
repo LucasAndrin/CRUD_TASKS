@@ -1,3 +1,95 @@
 @import url('https://fonts.googleapis.com/css2?family=Nunito:wght@400;600;700&display=swap');
 @import '../node_modules/bootstrap/scss/bootstrap';
 @import 'styles.scss';
+
+$highLightAccentColor: $indigo;
+$backgroundAccentColor: $light;
+$headerHeight: 4rem;
+$navWidth: 68px;
+$normalFontSize: 1rem;
+$bodyFont: 'Nunito', sans-serif;
+$breakPointWidth: 768px;
+
+*,
+::before,
+::after {
+    box-sizing: border-box;
+}
+
+main {
+    font-family: $bodyFont;
+    font-size: $normalFontSize;
+    position: relative;
+    margin-top: $headerHeight;
+    padding: 0 1rem;
+    transition: .5s;
+}
+
+.navbar-top {
+    height: $headerHeight;
+    padding: 0 1.5rem;
+    transition: .5s;
+}
+
+.sidebar {
+    position: fixed;
+    top: 0;
+    left: -30%;
+    width: $navWidth;
+    transition: .5s;
+
+    .nav {
+
+        a.nav-link {
+            position: relative;
+    
+            &:hover {
+                color: $indigo-400;
+            }
+            
+            &:active {
+                color: $indigo-600;
+            }
+
+            &.router-link-active {
+                &::before {
+                    content: '';
+                    position: absolute;
+                    left: 0;
+                    width: 2px;
+                    height: 32px;
+                    background-color: $indigo;
+                }
+            }
+        }
+    }
+    
+}
+
+.sidebar-show {
+    left: 0;
+}
+
+.main-pd {
+    padding-left: calc($navWidth + .5rem);
+}
+
+@media screen and (min-width: $breakPointWidth) {
+    main {
+        margin: calc($headerHeight + 1rem) 0 0 0;
+        padding-left: calc($navWidth + 1rem);
+    }
+    .navbar-top {
+        height: calc($headerHeight + 1rem);
+        padding: 0 2rem 0 calc($navWidth + 1.5rem);
+    }
+    .sidebar {
+        left: 0;
+    }
+    .sidebar-show {
+        width: calc($navWidth + 156px);
+    }
+    .main-pd {
+        padding-left: calc($navWidth + 11rem);
+    }
+}

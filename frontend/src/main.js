@@ -14,7 +14,7 @@ import './assets/scss/main.scss'
 const app = createApp(App)
 
 axios.defaults.baseURL = 'http://localhost:8000'
-axios.defaults.withCredentials = true
+// axios.defaults.withCredentials = true
 
 app.use(router)
 app.use(VueAxios, axios)

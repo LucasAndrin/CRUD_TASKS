@@ -1,6 +1,7 @@
 import { createRouter, createWebHistory } from 'vue-router'
 
-import Login from '@/components/Login.vue'
+import Authentication from '@/views/Authentication.vue'
+
 
 import Tasks from '@/views/Tasks.vue'
 
@@ -9,9 +10,14 @@ const router = createRouter({
   history: createWebHistory(import.meta.env.BASE_URL),
   routes: [
     {
-      path: '/login',
-      name: 'login',
-      component: Login
+      path: '/',
+      name: 'Tasks',
+      component: Tasks
+    },
+    {
+      path: '/authentication',
+      name: 'Authentication',
+      component: Authentication
     },
     {
       path: '/tasks',
