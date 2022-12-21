@@ -3,6 +3,7 @@
 use App\Http\Controllers\AuthController;
 use App\Http\Controllers\UserAdminController;
 use App\Http\Controllers\UserCoordinatorController;
+use App\Http\Controllers\UserResponsibleController;
 use Illuminate\Support\Facades\Route;
 
 /*
@@ -44,6 +45,17 @@ Route::middleware('auth:sanctum')->group(function () {
             Route::post('store', 'store');
             Route::put('update', 'update');
             Route::get('show', 'show');
+        });
+    });
+
+    Route::controller(UserResponsibleController::class)->prefix('responsible')->group(function () {
+        Route::prefix('tasks')->group(function () {
+            Route::get('', 'index');
+            Route::prefix('mark-as')->group(function () {
+                Route::post('progress', 'initiate');
+                Route::put('stoped', 'update');
+                Route::get('completed', 'show');
+            });
         });
     });
 });

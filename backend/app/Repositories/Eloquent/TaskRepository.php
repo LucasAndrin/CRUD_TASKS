@@ -2,7 +2,11 @@
 
 namespace App\Repositories\Eloquent;
 
+use App\Filters\TaskFilter;
 use App\Models\Task;
+use App\Models\UserAdmin;
+use App\Models\UserCoordinator;
+use App\Models\UserResponsible;
 use App\Repositories\TaskRepositoryInterface;
 use Illuminate\Database\Eloquent\Collection;
 use TimWassenburg\RepositoryGenerator\Repository\BaseRepository;
@@ -25,6 +29,11 @@ class TaskRepository extends BaseRepository implements TaskRepositoryInterface
     public function getTasksFilterableWith(array|null $filter = null, array|string|null $with = null, array|string $get = ['*']): Collection
     {
         return $this->model->latest()->with($with)->filter($filter)->get($get);
+    }
+
+    public function getTasksFromUser(UserResponsible|UserCoordinator $user, array $filter = [], array|string|null $with = null): Collection
+    {
+        return $user->tasks()->with($with)->filter($filter, TaskFilter::class)->get();
     }
 
     public function createTask(array $data): Task

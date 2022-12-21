@@ -1,10 +1,12 @@
 <script>
-import Users from './UserAdmin/Users.vue';
-import Tasks from './UserCoordinator/Tasks.vue';
+import UserAdminUsers from './UserAdmin/Users.vue';
+import UserCoordinatorTasks from './UserCoordinator/Tasks.vue';
+import UserResponsibleTasks from './UserResponsible/Tasks.vue';
 export default {
     components: {
-        Users: Users,
-        Tasks: Tasks
+        UserAdminUsers: UserAdminUsers,
+        UserCoordinatorTasks: UserCoordinatorTasks,
+        UserResponsibleTasks: UserResponsibleTasks
     },
 
     props: {
@@ -18,7 +20,8 @@ export default {
 
 <template>
     <div>
-        <Users :user="this.user" v-if="user.type === 1" />
-        <Tasks :user="this.user" v-if="user.type === 2" />
+        <UserAdminUsers :user="this.user" v-if="user.type === 1" />
+        <UserCoordinatorTasks :user="this.user" v-if="user.type === 2" />
+        <UserResponsibleTasks :user="this.user" v-if="user.type === 3"/>
     </div>
 </template>

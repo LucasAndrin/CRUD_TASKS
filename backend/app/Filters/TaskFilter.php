@@ -16,6 +16,6 @@ class TaskFilter extends ModelFilter
 
     public function description($description)
     {
-        return $this->where('description', 'ilike', "%$description");
+        return $this->where('description', 'ilike', "%$description%");
     }
 }
