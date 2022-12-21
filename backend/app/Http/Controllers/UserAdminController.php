@@ -2,18 +2,29 @@
 
 namespace App\Http\Controllers;
 
+use App\Http\Requests\CreateUserRequest;
+use App\Services\UserAdminService;
 use Illuminate\Http\Request;
 
 class UserAdminController extends Controller
 {
+    private UserAdminService $userAdminService;
+
+    public function __construct()
+    {
+        $this->userAdminService = new UserAdminService;
+    }
+
     /**
      * Display a listing of the resource.
      *
      * @return \Illuminate\Http\Response
      */
-    public function index()
+    public function index(Request $request)
     {
-        //
+        $data = $this->userAdminService->getUsers($request->search);
+
+        return response()->json($data, 200);
     }
 
     /**
@@ -22,9 +33,11 @@ class UserAdminController extends Controller
      * @param  \Illuminate\Http\Request  $request
      * @return \Illuminate\Http\Response
      */
-    public function store(Request $request)
+    public function store(CreateUserRequest $request)
     {
-        //
+        $data = $this->userAdminService->createUser($request->all());
+
+        return response()->json($data, 200);
     }
 
     /**
@@ -56,8 +69,10 @@ class UserAdminController extends Controller
      * @param  int  $id
      * @return \Illuminate\Http\Response
      */
-    public function destroy($id)
+    public function destroy(Request $request)
     {
-        //
+        $data = $this->userAdminService->deleteUser($request->uuid);
+
+        return response()->json($data);
     }
 }

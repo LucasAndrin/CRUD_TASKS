@@ -33,7 +33,7 @@ class AuthService
 
     public function register(array $data): array
     {
-        $user = $this->userRepository->create([
+        $user = $this->userRepository->createUser([
             'name' => $data['name'],
             'email' => $data['email'],
             'password' => Hash::make($data['password']),

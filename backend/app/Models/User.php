@@ -56,4 +56,16 @@ class User extends Authenticatable
     {
         return $this->hasOne(UserAdmin::class, 'created_by', 'id');
     }
+
+    public function isAdmin() {
+        return $this->type === UserType::ADMIN;
+    }
+
+    public function isCoordinator() {
+        return $this->type === UserType::COORDINATOR;
+    }
+
+    public function isResponsible() {
+        return $this->type === UserType::RESPONSIBLE;
+    }
 }
