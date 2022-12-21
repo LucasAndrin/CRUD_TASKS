@@ -2,8 +2,10 @@
 
 namespace App\Services;
 
+use App\Enums\UserType;
 use App\Models\User;
 use App\Repositories\Eloquent\UserRepository;
+use Illuminate\Support\Facades\Hash;
 
 /**
  * Class AuthService.
@@ -31,7 +33,12 @@ class AuthService
 
     public function register(array $data): array
     {
-        $user = $this->userRepository->create($data);
+        $user = $this->userRepository->create([
+            'name' => $data['name'],
+            'email' => $data['email'],
+            'password' => Hash::make($data['password']),
+            'type' => UserType::ADMIN->value
+        ]);
 
         $token = $user->createToken('myapptoken')->plainTextToken;
 
