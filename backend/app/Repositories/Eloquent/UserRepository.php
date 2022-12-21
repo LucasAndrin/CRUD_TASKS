@@ -25,6 +25,11 @@ class UserRepository extends BaseRepository implements UserRepositoryInterface
         return $this->model->create($data);
     }
 
+    public function updateUser(string $uuid, array $data): int
+    {
+        return $this->model->where('uuid', $uuid)->update($data);
+    }
+
     public function findUserByUuid(string $uuid): User
     {
         return $this->model->findByUuid($uuid);

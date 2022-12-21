@@ -34,6 +34,11 @@ class UserAdminService
         ]);
     }
 
+    public function updateUser(string $uuid, array $data): int
+    {
+        return $this->userRepository->updateUser($uuid, $data);
+    }
+
     public function deleteUser(string $uuid): int
     {
         $user = $this->userRepository->findUserByUuidMorph($uuid, new UserAdmin);
