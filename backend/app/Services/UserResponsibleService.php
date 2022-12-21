@@ -2,6 +2,7 @@
 
 namespace App\Services;
 
+use App\Enums\TaskStatus;
 use App\Models\Task;
 use App\Models\UserResponsible;
 use App\Repositories\Eloquent\TaskRepository;
@@ -26,5 +27,26 @@ class UserResponsibleService
         return $this->taskRepository->getTasksFromUser($user, [
             'description' => $search
         ], ['creator']);
+    }
+
+    public function markTaskAsProgress(string $taskUuid): int
+    {
+        return $this->taskRepository->updateTaskByUuid($taskUuid, [
+            'status' => TaskStatus::Progress
+        ]);
+    }
+
+    public function markAsStopped(string $taskUuid): int
+    {
+        return $this->taskRepository->updateTaskByUuid($taskUuid, [
+            'status' => TaskStatus::Stopped
+        ]);
+    }
+
+    public function markTaskAsCompleted(string $taskUuid): int
+    {
+        return $this->taskRepository->updateTaskByUuid($taskUuid, [
+            'status' => TaskStatus::Completed
+        ]);
     }
 }

@@ -22,18 +22,24 @@ class UserResponsibleController extends Controller
         return response()->json($data, 200);
     }
 
-    // public function markAsProgress(): JsonResponse
-    // {
+    public function markAsProgress(Request $request): JsonResponse
+    {
+        $data = $this->userResponsibleService->markTaskAsProgress($request->uuid);
 
-    // }
+        return response()->json($data, 200);
+    }
 
-    // public function markAsStoped(): JsonResponse
-    // {
+    public function markAsStoped(Request $request): JsonResponse
+    {
+        $data = $this->userResponsibleService->markAsStopped($request->uuid);
 
-    // }
+        return response()->json($data, 200);
+    }
 
-    // public function markAsCompleted(): JsonResponse
-    // {
+    public function markAsCompleted(Request $request): JsonResponse
+    {
+        $data = $this->userResponsibleService->markTaskAsProgress($request->uuid);
 
-    // }
+        return response()->json($data, 200);
+    }
 }

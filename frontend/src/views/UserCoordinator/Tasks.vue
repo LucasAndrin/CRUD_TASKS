@@ -143,7 +143,7 @@ export default {
                 case 2:
                     return 'Progress';
                 case 3:
-                    return 'Stoped';
+                    return 'Stopped';
                 default:
                     return 'Completed';
             }

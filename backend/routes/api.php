@@ -52,9 +52,9 @@ Route::middleware('auth:sanctum')->group(function () {
         Route::prefix('tasks')->group(function () {
             Route::get('', 'index');
             Route::prefix('mark-as')->group(function () {
-                Route::post('progress', 'initiate');
-                Route::put('stoped', 'update');
-                Route::get('completed', 'show');
+                Route::patch('progress', 'markAsProgress');
+                Route::patch('stopped', 'markAsStoped');
+                Route::patch('completed', 'markAsCompleted');
             });
         });
     });
