@@ -57,7 +57,6 @@ export default {
                 localStorage.setItem('access_token', response.data.token);
                 this.$emit('authenticated');
             }).catch(error => {
-                console.log(error);
                 this.loading = false;
                 this.email.validation = null;
                 this.password.validation = null;
